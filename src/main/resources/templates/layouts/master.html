@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="head">
+<meta charset="UTF-8" />
+<title th:text="${titulo}"></title>
+<link rel="stylesheet" th:href="@{/css/bootstrap.css}">
+<link rel="stylesheet" th:href="@{/css/jquery-ui.min.css}">
+<link rel="stylesheet" th:href="@{/css/sticky-footer-navbar.css}">
+<style>
+.however:focus {
+	color: #495057;
+	background-color: #fff;
+	border-color: #20973c;
+	outline: 0;
+	box-shadow: 0 0 0 0.2rem #28a745;
+}
+</style>
+</head>
+<body>
+	<header th:fragment="header">
+		<nav class="navbar navbar-expand-lg navbar-dark"
+			style="background-color: #234354;">
+			<a class="navbar-brand" href="#">SV Billing App</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse"
+				data-target="#navbarSupportedContent"
+				aria-controls="navbarSupportedContent" aria-expanded="false"
+				aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item" th:classappend="${paginaActual=='init'} ? active : nav-item"><a class="nav-link" th:href="@{/}">Tablero<span
+							class="sr-only">(current)</span></a></li>
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" 
+						   role="button" data-toggle="dropdown" aria-haspopup="true"
+						   aria-expanded="false" th:classappend="${grupoActual=='catalogo'} ? active : nav-link"> Cat&aacute;logos </a>
+						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+							<a class="dropdown-item" th:classappend="${paginaActual=='cliente'} ? active : dropdown-item" th:href="@{/cliente/list}">Clientes</a>
+							<a class="dropdown-item" th:href="@{/producto/list}">Productos</a>
+							<div class="dropdown-divider"></div>
+							<a class="dropdown-item" th:href="@{/proveedor/list}">Proveedores</a>
+						</div></li>
+					<li class="nav-item dropdown"><a
+						class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+						role="button" data-toggle="dropdown" aria-haspopup="true"
+						aria-expanded="false"> Procesos </a>
+						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+							<a class="dropdown-item" th:href="@{/factura/list}">Facturaci&oacute;n</a>
+						</div></li>
+					<li class="nav-item dropdown"><a
+						class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+						role="button" data-toggle="dropdown" aria-haspopup="true"
+						aria-expanded="false"> Reportes </a>
+						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+							<a class="dropdown-item" href="#">Libros contables</a>
+						</div></li>
+				</ul>
+				<form class="form-inline my-2 my-lg-0">
+					<input class="form-control mr-sm-2 however" type="search"
+						placeholder="B&uacute;squeda" aria-label="Search" />
+					<button class="btn btn-outline-success my-2 my-sm-0" type="submit">B&uacute;squeda</button>
+				</form>
+			</div>
+		</nav>
+	</header>
+	<main role="main" class="container"> </main>
+	<footer th:fragment="footer">
+		<div class="footer">
+			<div class="container">
+				<a class="text-muted" href="#">&copy;
+					SV-G4-Corporation.WebDesign{#}</a>
+			</div>
+		</div>
+		<script th:src="@{/js/jquery-3.3.1.min.js}"></script>
+		<script th:src="@{/js/jquery-ui.min.js}"></script>
+		<script th:src="@{/js/bootstrap.js}"></script>
+	</footer>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layouts/master :: head"></head>
+<body>
+	<header th:replace="layouts/master :: header"></header>
+	<main role="main" class="container py-4">
+	<div class="card bg-light">
+		<div class="card-header">
+			<span th:text="${titulo}"></span> <strong
+				th:text="${cliente.nombre} + ' ' + ${cliente.apellido}"></strong>
+		</div>
+		<div class="card-body">
+			<a class="btn btn-success btn-xs" th:href="@{/factura/form/} + ${cliente.id}" th:text="'Crear factura'"></a>
+			<div class="container">
+				<div class="row">
+					<div class="col" th:if="${#strings.length(cliente.foto) > 0 }">
+						<img class="img-thumbnail rounded"
+							th:src="@{/uploads/} + ${cliente.foto}"
+							th:alt="${cliente.nombre}" />
+					</div>
+					<div class="col-9">
+						<div class="bd-example">
+							<address>
+								<strong>Identificador: </strong><span th:text="${cliente.id}"></span>
+								<br> <strong>Edad: </strong><span th:text="${cliente.edad}"></span>
+								<br> <strong>Correo electr&oacute;nico: </strong><a
+									href="mailto:#" th:text="${cliente.correo}"></a> <br> <strong>Creado
+									el: </strong><span th:text="${cliente.creadoEl}"></span>
+							</address>
+							<a class="btn btn-success btn-xs" th:href="@{/cliente/list}">Regresar</a>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+	<div th:if="${#lists.isEmpty(cliente.facturas)}" class="alert alert-info my-4" th:text="'El cliente no tiene facturas asignadas'"></div>
+	<table th:if="${not #lists.isEmpty(cliente.facturas)}" class="table table-bordered table-striped my-4">
+		<thead>
+			<tr class="thead-inverse">
+				<th>Folio</th>
+				<th>Descripci&oacute;n</th>
+				<th>Fecha</th>
+				<th>Total</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="factura: ${cliente.facturas}">
+				<td th:text="${factura.id}"></td>
+				<td th:text="${factura.descripcion}"></td>
+				<td th:text="${factura.creadoEl}"></td>
+				<td th:text="${factura.total}"></td>
+			</tr>
+
+		</tbody>
+	</table>
+	</main>
+	<footer th:replace="layouts/master :: footer"></footer>
+</body>
+</html>

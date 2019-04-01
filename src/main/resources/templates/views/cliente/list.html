@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layouts/master :: head"></head>
+<body>
+    <header th:replace="layouts/master :: header"></header>
+    <main role="main" class="container py-4">
+		<div class="card bg-light">
+			<div class="card-header">Listado de clientes</div>
+			<div class="card-body">
+				<h4 class="card-title"><a class="btn btn-success btn-xs" th:href="@{/cliente/form}">Crear cliente</a></h4>
+				<table class="table table-borderless table-sm table-hover">
+					<thead class="thead-dark">
+						<tr>
+							<th scope="col">#</th>
+							<th scope="col">Nombre</th>
+							<th scope="col">Apellido</th>
+							<th scope="col">Edad</th>
+							<th scope="col">Correo</th>
+							<th scope="col">Fecha</th>
+							<th scope="col">Crear factura</th>
+							<th scope="col" colspan="2">Acciones</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="cliente: ${clientes}">
+							<th><a class="btn btn-primary btn-xs" th:href="@{/cliente/show/} + ${cliente.id}" th:text="${cliente.id}"></a></th>
+							<th scope="row" th:text="${cliente.nombre}"></th>
+							<th scope="row" th:text="${cliente.apellido}"></th>
+							<th scope="row" th:text="${cliente.edad}"></th>
+							<th scope="row" th:text="${cliente.correo}"></th>
+							<th scope="row" th:text="${cliente.creadoEl}"></th>
+							<th scope="row"><a class="btn btn-success btn-xs" th:href="@{/factura/form/} + ${cliente.id}" th:text="'Crear factura'"></a></th>
+							<th scope="row"><a class="btn btn-primary btn-xs"
+								th:href="@{/cliente/form/} + ${cliente.id}" th:text="Editar"></a></th>
+							<th scope="row"><a class="btn btn-danger btn-xs"
+								th:href="@{/cliente/delete/} + ${cliente.id}" th:text="Eliminar"
+								onclick="return confirm('Seguro de eliminar?');"></a></th>
+						</tr>
+					</tbody>
+				</table>
+				<nav th:replace="layouts/paginator-nav :: paginator"></nav>
+			</div>
+		</div>
+    </main>
+    <footer th:replace="layouts/master :: footer"></footer>
+</body>
+</html>

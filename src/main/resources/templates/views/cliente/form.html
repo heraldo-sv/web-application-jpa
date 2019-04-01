@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layouts/master :: head"></head>
+<body>
+    <header th:replace="layouts/master :: header"></header>
+    <main role="main" class="container py-4">
+		<div class="card bg-light">
+			<div class="card-header" th:text="${titulo}"></div>
+			<div class="card-body">
+				<form th:action="@{/cliente/form}" th:object="${cliente}" method="POST" enctype="multipart/form-data">
+					<!-- <input type="hidden" th:field="*{id}" /> -->
+					<div class="form-group row">
+						<label for="inputNombre" class="col-sm-2 col-form-label">Nombre</label>
+						<div class="col-sm-10">
+							<input type="text" class="form-control" id="inputNombre"
+								placeholder="Nombres" th:field="*{nombre}"
+								th:errorclass="'form-control alert-danger'" /> <small
+								class="form-text text-danger"
+								th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"></small>
+						</div>
+					</div>
+					<div class="form-group row">
+						<label for="inputApellido" class="col-sm-2 col-form-label">Apellido</label>
+						<div class="col-sm-10">
+							<input type="text" class="form-control" id="inputApellido"
+								placeholder="Apellido" th:field="*{apellido}"
+								th:errorclass="'form-control alert-danger'" /> <small
+								class="form-text text-danger"
+								th:if="${#fields.hasErrors('apellido')}" th:errors="*{apellido}"></small>
+						</div>
+					</div>
+					<div class="form-group row">
+						<label for="inputCorreo" class="col-sm-2 col-form-label">Correo</label>
+						<div class="col-sm-10">
+							<input type="text" class="form-control" id="inputCorreo"
+								placeholder="Correo electr&oacute;nico" th:field="*{correo}"
+								th:errorclass="'form-control alert-danger'" /> <small
+								class="form-text text-danger"
+								th:if="${#fields.hasErrors('correo')}" th:errors="*{correo}"></small>
+						</div>
+					</div>
+					<div class="form-group row">
+						<label for="inputEdad" class="col-sm-2 col-form-label">Edad</label>
+						<div class="col-sm-10">
+							<input type="text" class="form-control" id="inputEdad"
+								placeholder="Edad actual" th:field="*{edad}"
+								th:errorclass="'form-control alert-danger'" /> <small
+								class="form-text text-danger"
+								th:if="${#fields.hasErrors('edad')}"
+								th:errors="*{edad}"></small>
+						</div>
+					</div>
+					<div class="form-group row">
+						<label for="inputFecha" class="col-sm-2 col-form-label">Fecha</label>
+						<div class="col-sm-10">
+							<input type="text" class="form-control" id="inputFecha"
+								placeholder="Fecha de creaci&oacute;n" th:field="*{creadoEl}"
+								th:errorclass="'form-control alert-danger'" /> <small
+								class="form-text text-danger"
+								th:if="${#fields.hasErrors('creadoEl')}"
+								th:errors="*{creadoEl}"></small>
+						</div>
+					</div>
+					<div class="form-group row">
+						<label for="inputFile" class="col-sm-2 col-form-label">Foto</label>
+						<div class="col-sm-10">
+							<input type="file" name="inputFile" class="form-control"/>
+						</div>
+					</div>
+					<div class="form-group row">
+						<div class="col-sm-10">
+							<button type="submit" class="btn btn-primary">Guardar</button>
+							<a class="btn btn-outline-info btn-xs" th:href="@{/cliente/list}">Cancelar</a>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+    </main>
+    <footer th:replace="layouts/master :: footer"></footer>
+</body>
+</html>

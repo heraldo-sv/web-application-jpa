@@ -1,0 +1,41 @@
+/* Populate tables */
+INSERT INTO clientes (id,nombre,apellido,edad,correo,creado_el,foto) VALUES (1,'Heraldo','del Valle',29,'heraldo.delvalle@gmail.com','2018-11-14','');
+INSERT INTO clientes (id,nombre,apellido,edad,correo,creado_el,foto) VALUES (2,'Johanny','Menjivar',36,'johanny.menjivar@gmail.com','2018-11-19','');
+INSERT INTO clientes (id,nombre,apellido,edad,correo,creado_el,foto) VALUES (3,'Andres', 'Guzman',34,'profesor@bolsadeideas.com', '2017-08-01','');
+INSERT INTO clientes (id,nombre,apellido,edad,correo,creado_el,foto) VALUES (4,'John', 'Doe',22,'john.doe@gmail.com', '2017-08-02','');
+INSERT INTO clientes (id,nombre,apellido,edad,correo,creado_el,foto) VALUES (5,'Linus', 'Torvalds',25,'linus.torvalds@gmail.com', '2017-08-03','');
+INSERT INTO clientes (id,nombre,apellido,edad,correo,creado_el,foto) VALUES (6,'Jane', 'Doe',18,'jane.doe@gmail.com', '2017-08-04','');
+INSERT INTO clientes (id,nombre,apellido,edad,correo,creado_el,foto) VALUES (7,'Rasmus', 'Lerdorf',23,'rasmus.lerdorf@gmail.com', '2017-08-05','');
+INSERT INTO clientes (id,nombre,apellido,edad,correo,creado_el,foto) VALUES (8,'Erich', 'Gamma',40,'erich.gamma@gmail.com', '2017-08-06','');
+INSERT INTO clientes (id,nombre,apellido,edad,correo,creado_el,foto) VALUES (9,'Richard', 'Helm',37,'richard.helm@gmail.com', '2017-08-07','');
+INSERT INTO clientes (id,nombre,apellido,edad,correo,creado_el,foto) VALUES (10,'Ralph', 'Johnson',44,'ralph.johnson@gmail.com', '2017-08-08','');
+INSERT INTO clientes (id,nombre,apellido,edad,correo,creado_el,foto) VALUES (11,'John', 'Vlissides',33,'john.vlissides@gmail.com', '2017-08-09','');
+INSERT INTO clientes (id,nombre,apellido,edad,correo,creado_el,foto) VALUES (12,'James', 'Gosling',31,'james.gosling@gmail.com', '2017-08-010','');
+INSERT INTO clientes (id,nombre,apellido,edad,correo,creado_el,foto) VALUES (13,'Bruce', 'Lee',45,'bruce.lee@gmail.com', '2017-08-11','');
+INSERT INTO clientes (id,nombre,apellido,edad,correo,creado_el,foto) VALUES (14,'Johnny', 'Doe',20,'johnny.doe@gmail.com', '2017-08-12','');
+INSERT INTO clientes (id,nombre,apellido,edad,correo,creado_el,foto) VALUES (15,'John', 'Roe',32,'john.roe@gmail.com', '2017-08-13','');
+INSERT INTO clientes (id,nombre,apellido,edad,correo,creado_el,foto) VALUES (16,'Jane', 'Roe',19,'jane.roe@gmail.com', '2017-08-14','');
+INSERT INTO clientes (id,nombre,apellido,edad,correo,creado_el,foto) VALUES (17,'Richard', 'Doe',27,'richard.doe@gmail.com', '2017-08-15','');
+INSERT INTO clientes (id,nombre,apellido,edad,correo,creado_el,foto) VALUES (18,'Janie', 'Doe',42,'janie.doe@gmail.com', '2017-08-16','');
+INSERT INTO clientes (id,nombre,apellido,edad,correo,creado_el,foto) VALUES (19,'Phillip', 'Webb',49,'phillip.webb@gmail.com', '2017-08-17','');
+INSERT INTO clientes (id,nombre,apellido,edad,correo,creado_el,foto) VALUES (20,'Stephane', 'Nicoll',38,'stephane.nicoll@gmail.com', '2017-08-18','');
+INSERT INTO clientes (id,nombre,apellido,edad,correo,creado_el,foto) VALUES (21,'Sam', 'Brannen',22,'sam.brannen@gmail.com', '2017-08-19','');  
+INSERT INTO clientes (id,nombre,apellido,edad,correo,creado_el,foto) VALUES (22,'Juergen', 'Hoeller',46,'juergen.Hoeller@gmail.com', '2017-08-20',''); 
+INSERT INTO clientes (id,nombre,apellido,edad,correo,creado_el,foto) VALUES (23,'Janie', 'Roe',51,'janie.roe@gmail.com', '2017-08-21','');
+INSERT INTO clientes (id,nombre,apellido,edad,correo,creado_el,foto) VALUES (24,'John', 'Smith',24,'john.smith@gmail.com', '2017-08-22','');
+INSERT INTO clientes (id,nombre,apellido,edad,correo,creado_el,foto) VALUES (25,'Joe', 'Bloggs',39,'joe.bloggs@gmail.com', '2017-08-23','');
+INSERT INTO clientes (id,nombre,apellido,edad,correo,creado_el,foto) VALUES (26,'John', 'Stiles',22,'john.stiles@gmail.com', '2017-08-24','');
+INSERT INTO clientes (id,nombre,apellido,edad,correo,creado_el,foto) VALUES (27,'Richard', 'Roe',18,'stiles.roe@gmail.com', '2017-08-25','');
+/* Populate tables := productos */
+INSERT INTO productos (nombre,precio,creado_el) VALUES ('Panasonic Pantalla LED',259990,NOW());
+INSERT INTO productos (nombre,precio,creado_el) VALUES ('SONY Mini componente',278790,NOW());
+INSERT INTO productos (nombre,precio,creado_el) VALUES ('Apple iPod shuffle',375968,NOW());
+INSERT INTO productos (nombre,precio,creado_el) VALUES ('SONY Play Station 4',688790,NOW());
+/* Populate tables := facturas */
+INSERT INTO facturas (descripcion,observacion,cliente_id,creado_el) VALUES ('Factura equipos de oficina','Sin observaciones.',1,NOW());
+INSERT INTO facturas_items (cantidad,factura_id,producto_id) VALUES (1,1,1);
+INSERT INTO facturas_items (cantidad,factura_id,producto_id) VALUES (2,1,4);
+INSERT INTO facturas_items (cantidad,factura_id,producto_id) VALUES (1,1,2);
+INSERT INTO facturas (descripcion,observacion,cliente_id,creado_el) VALUES ('Factura linea blanca','Sin observaciones.',1,NOW());
+INSERT INTO facturas_items (cantidad,factura_id,producto_id) VALUES (1,2,1);
+INSERT INTO facturas_items (cantidad,factura_id,producto_id) VALUES (2,2,4);
